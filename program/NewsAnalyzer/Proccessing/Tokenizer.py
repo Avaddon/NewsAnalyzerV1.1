@@ -9,8 +9,8 @@ class TokenType(Enum):
     VERB = 'verb'
     NUMBER = 'num'
     DATE = 'date'
-    REGION = 'region'
-    REGION_WORD = 'region_word'
+    LOCATION = 'location'
+    LOCATION_WORD = 'location_word'
     OBJECT = 'object'
     INITIATOR = 'initiator'
     DETERMINER = 'determiner'
@@ -36,7 +36,7 @@ class TextTokenizer:
 
     def __init__(self, patterns:dict):
         self.word_pattern = re.compile(r'\w+([-,.:]\w+)?([%])?')
-        self.symbol_pattern = re.compile(r'([,.]) ')
+        self.symbol_pattern = re.compile(r'([,.])')
         self.quote_pattern = re.compile(r'[«»“”—]')
         self.patterns = patterns
 
@@ -79,15 +79,14 @@ class TextTokenizer:
 
         for token in tokens:
 
-            for token_type, aliases in self.patterns.items():
-
-                if token.value in aliases:
-                    token.type = TokenType(token_type)
-                    break
-
-            if re.match(r'\d+([.,-]\d+)?', token.value):
+            if re.fullmatch(r'\d+([.,-]\d+)?', token.value):
                 token.type = TokenType.NUMBER
-            if re.match(r'\d+[:]+\d+', token.value):
+            elif re.fullmatch(r'\d+[:]+\d+', token.value):
                 token.type = TokenType.DATE
+            else:
+                for token_type, aliases in self.patterns.items():
 
+                    if token.value in aliases:
+                        token.type = TokenType(token_type)
+                        break
         return tokens

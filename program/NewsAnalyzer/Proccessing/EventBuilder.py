@@ -14,7 +14,6 @@ class EventBuilder:
         data = []
 
         event_list = []
-        event_sentences = []
 
         for token in token_list:
             for field in event_fields:
@@ -39,8 +38,4 @@ class EventBuilder:
         if any(event.__getattribute__(field.name) for field in fields(event)):
             event_list.append(event)
 
-        for event in event_list:
-            sentence = event.build_sentence()
-            event_sentences.append(sentence)
-
-        return event_sentences
+        return event_list

@@ -33,32 +33,41 @@ class TokenBuilder:
                 TokenType.WORD:'WORD',
                 TokenType.VERB:'VERB',
                 TokenType.NUMBER: 'NUM_BUILDER',
-                TokenType.REGION:'REGION_BUILDER',
-                TokenType.REGION_WORD: 'PREPOSITIONAL_PHRASE',
+                TokenType.LOCATION:'LOCATION_BUILDER',
+                TokenType.LOCATION_WORD: 'LOCATION_PHRASE_BUILDER',
                 TokenType.DATE:'DATE_BUILDER',
                 TokenType.INITIATOR:'INITIATOR_BUILDER'
                 },
             'PREPOSITIONAL_PHRASE':{
-                'base':          {'include':['word','dash','region_word','comma','symbol'],  'type':TokenType.PREPOSITION},
-                'transitional':  ['num','determiner','region','initiator','date'],
+                'base':          {'include':['word','dash','location_word','comma','symbol'],  'type':TokenType.PREPOSITION},
+                'transitional':  ['num','determiner','location','initiator','date'],
                 'trigger':       ['word'],
-                'change_base':   {'include':['word','dash','region','region_word','comma','symbol'], 'type':TokenType.PREPOSITION}},
+                'change_state':  'AFTER_WORD_PREPOSITION',
+            },
+            'AFTER_WORD_PREPOSITION':{
+                'base':          {'include':['word','dash','location','location_word','comma','symbol'], 'type':TokenType.PREPOSITION},
+                'transitional':  ['num','determiner','location','initiator','date'],
+            },
             'NUM_BUILDER':{
                 'base':          {'include':['num','word','symbol','comma'],  'type':TokenType.NUMBER},
                 'transitional':  ['date'],
-                'trigger':       ['region'],
-                'change_base':   {'include':['num','word','symbol','comma','region'],  'type':TokenType.REGION}},
+                'trigger':       ['location'],
+                'change_state':  'AFTER_REGION_NUM'
+            },
+            'AFTER_REGION_NUM':  {'base': {'include':['num','word','symbol','comma','location'],  'type':TokenType.LOCATION}},
             'VERB':              {'base': {'include':['verb','negation','comma','symbol'],'type':TokenType.VERB}},
-            'WORD':              {'base': {'include':['word','region_word','dash','symbol','comma','region'],  'type':TokenType.WORD}},
-            'REGION_BUILDER':    {'base': {'include':['region','region_word','symbol','comma'],  'type':TokenType.REGION}},
-            'INITIATOR_BUILDER': {'base': {'include':['initiator','word','region','conjunction','symbol'],  'type':TokenType.INITIATOR}},
+            'WORD':              {'base': {'include':['word','location_word','dash','symbol','comma','location'],  'type':TokenType.WORD}},
+            'LOCATION_BUILDER':  {'base': {'include':['location','location_word','symbol','comma'],  'type':TokenType.LOCATION}},
+            'LOCATION_PHRASE_BUILDER':  {'base': {'include':['location','location_word','symbol','comma','word'],  'type':TokenType.LOCATION}},
+            'INITIATOR_BUILDER': {'base': {'include':['initiator','word','location','conjunction','symbol'],  'type':TokenType.INITIATOR}},
             'CONJUNCTION':       {'base': {'include':['conjunction'],  'type':TokenType.CONJUNCTION}},
             'DATE_BUILDER':      {'base': {'include':['date','num','conjunction','word'], 'type':TokenType.DATE}},
             'CITATION':{
                 'base':         {'include':[*Patterns.keys()],'type':TokenType.QUOTE},
                 'trigger':      ['unquote'],
-                'change_base':  {'include':['symbol','comma','unquote','dash'],'type':TokenType.QUOTE}
-                        }
+                'change_state':  'AFTER_UNQUOTE_CITATION'
+            },
+            'AFTER_UNQUOTE_CITATION': {'include':['symbol','comma','unquote','dash'],'type':TokenType.QUOTE}
         }
 
 
@@ -105,18 +114,16 @@ class TokenBuilder:
                 self.state = self.transitions['START'][token.type]
 
         else:
-            building_params = self.transitions[self.state]
-
-            #params_copy = deepcopy(building_params)
+            building_params = deepcopy(self.transitions[self.state])
 
             if token.type.value in building_params.get('trigger', []):
-                building_params['base'] = building_params['change_base']
+                self.state = building_params['change_state']
+                building_params = deepcopy(self.transitions[self.state])
 
             if (
                 token.type.value in building_params['base']['include'] 
                 or token.type.value in building_params.get('transitional', [])
             ):
-
                 result = self.write(token=token, params=building_params)
                 if result:
                     return result

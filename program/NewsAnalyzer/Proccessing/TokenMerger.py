@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from program.NewsAnalyzer.AnalyzerModels import Primary_Token, Token
-
+from copy import deepcopy
 
 
 @dataclass
@@ -15,7 +15,7 @@ class TokenMerger:
            'verb':['verb'],
            'num':['num','NUM_PHRASE'],
            'preposition':['preposition','conjunction'],
-           'region':['region'],   
+           'location':['location','conjunction'],   
            'determiner':[],  'quote':[],'unquote':[],
            'date':['date'],  'conjunction':[],   'dash':[], 'region_word':[],
            'comma':[],   'initiator':[]}
@@ -28,7 +28,7 @@ class TokenMerger:
 
         while i < len(token_list):
 
-            current_token = token_list[i]
+            current_token = deepcopy(token_list[i])
 
             j = i+1
 

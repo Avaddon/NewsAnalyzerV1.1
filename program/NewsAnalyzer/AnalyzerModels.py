@@ -14,9 +14,9 @@ class Primary_Token:
 @dataclass
 class Action:
 
-    before_verb: Optional[Token] = None
-    verb: Optional[Token] = None
-    after_verb: Optional[Token] = None
+    subject: Optional[Token] = None
+    predicate: Optional[Token] = None
+    object: Optional[Token] = None
 
 
 @dataclass
@@ -31,10 +31,11 @@ class Relation:
 class Event:
 
     initiator: Optional[Token] = None
-    object: Optional[Token] = None
     verb: Optional[Token] = None
+    object: Optional[Token] = None
+    location: Optional[Token] = None
     date: Optional[Token] = None
-    location: Optional[Token] = None         
+    source:Optional[Token] = None         
 
     def get_sorted_tokens(self) -> list[Token]:
 
