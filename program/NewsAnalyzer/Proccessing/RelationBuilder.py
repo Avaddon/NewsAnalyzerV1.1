@@ -1,7 +1,7 @@
 from dataclasses import dataclass, fields, field
 from program.NewsAnalyzer.AnalyzerModels import Action, Relation
 from program.NewsAnalyzer.Proccessing.Tokenizer import Token, TokenType
-import copy
+from copy import copy, deepcopy
 from typing import Optional
 
 @dataclass
@@ -80,7 +80,9 @@ class RelationBuilder:
         
     def make_relation(self, token_list:list):
 
-        action_list = self.make_action(token_list)
+        tokens = deepcopy(token_list)
+
+        action_list = self.make_action(tokens)
 
         relation_list = []
 
@@ -97,7 +99,7 @@ class RelationBuilder:
                         action.object.type = TokenType.INITIATOR
                     relation_list.append(action)
 
-        result = self.modify_token_list(token_list, action_list=action_list)
+        result = self.modify_token_list(tokens, action_list=action_list)
 
         return result
 
