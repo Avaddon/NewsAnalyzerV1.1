@@ -1,8 +1,132 @@
 {
-    "initiator":"средства пво россии",
-    "action":"уничтожили",
-    "object":"822 беспилотника всу",
-    "location":"над 17 российскими регионами, а также акваториями азовского и черного морей.",
-    "time":"с 20:00 до 8:00 мск",
-    "source":"минобороны россии"
+    "Tokenizer":{
+        "tokenize":[
+            "Token(type=<TokenType.WORD: 'word'>, value='средства', start=0, end=8)",
+            "Token(type=<TokenType.WORD: 'word'>, value='пво', start=9, end=12)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='россии', start=13, end=19)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='с', start=20, end=21)",
+            "Token(type=<TokenType.DATE: 'date'>, value='20:00', start=22, end=27)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='до', start=28, end=30)",
+            "Token(type=<TokenType.DATE: 'date'>, value='8:00', start=31, end=35)",
+            "Token(type=<TokenType.WORD: 'word'>, value='мск', start=36, end=39)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='822', start=51, end=54)",
+            "Token(type=<TokenType.WORD: 'word'>, value='беспилотника', start=55, end=67)",
+            "Token(type=<TokenType.WORD: 'word'>, value='всу', start=68, end=71)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='над', start=72, end=75)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='17', start=76, end=78)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='российскими', start=79, end=90)",
+            "Token(type=<TokenType.WORD: 'word'>, value='регионами', start=91, end=100)",
+            "Token(type=<TokenType.COMMA: 'comma'>, value=',', start=100, end=101)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='а', start=102, end=103)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='также', start=104, end=109)",
+            "Token(type=<TokenType.LOCATION_WORD: 'location_word'>, value='акваториями', start=110, end=121)",
+            "Token(type=<TokenType.WORD: 'word'>, value='азовского', start=122, end=131)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='и', start=132, end=133)",
+            "Token(type=<TokenType.WORD: 'word'>, value='черного', start=134, end=141)",
+            "Token(type=<TokenType.WORD: 'word'>, value='морей', start=142, end=147)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=147, end=148)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='об', start=149, end=151)",
+            "Token(type=<TokenType.DETERMINER: 'determiner'>, value='этом', start=152, end=156)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164)",
+            "Token(type=<TokenType.PLACE_PREPOSITION: 'place_preposition'>, value='в', start=165, end=166)",
+            "Token(type=<TokenType.WORD: 'word'>, value='пресс-службе', start=167, end=179)",
+            "Token(type=<TokenType.WORD: 'word'>, value='минобороны', start=180, end=190)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='россии', start=191, end=197)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=197, end=198)"
+        ],
+        "classify_tokens":[
+            "Token(type=<TokenType.WORD: 'word'>, value='средства', start=0, end=8)",
+            "Token(type=<TokenType.WORD: 'word'>, value='пво', start=9, end=12)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='россии', start=13, end=19)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='с', start=20, end=21)",
+            "Token(type=<TokenType.DATE: 'date'>, value='20:00', start=22, end=27)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='до', start=28, end=30)",
+            "Token(type=<TokenType.DATE: 'date'>, value='8:00', start=31, end=35)",
+            "Token(type=<TokenType.WORD: 'word'>, value='мск', start=36, end=39)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='822', start=51, end=54)",
+            "Token(type=<TokenType.WORD: 'word'>, value='беспилотника', start=55, end=67)",
+            "Token(type=<TokenType.WORD: 'word'>, value='всу', start=68, end=71)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='над', start=72, end=75)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='17', start=76, end=78)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='российскими', start=79, end=90)",
+            "Token(type=<TokenType.WORD: 'word'>, value='регионами', start=91, end=100)",
+            "Token(type=<TokenType.COMMA: 'comma'>, value=',', start=100, end=101)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='а', start=102, end=103)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='также', start=104, end=109)",
+            "Token(type=<TokenType.LOCATION_WORD: 'location_word'>, value='акваториями', start=110, end=121)",
+            "Token(type=<TokenType.WORD: 'word'>, value='азовского', start=122, end=131)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='и', start=132, end=133)",
+            "Token(type=<TokenType.WORD: 'word'>, value='черного', start=134, end=141)",
+            "Token(type=<TokenType.WORD: 'word'>, value='морей', start=142, end=147)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=147, end=148)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='об', start=149, end=151)",
+            "Token(type=<TokenType.DETERMINER: 'determiner'>, value='этом', start=152, end=156)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164)",
+            "Token(type=<TokenType.PLACE_PREPOSITION: 'place_preposition'>, value='в', start=165, end=166)",
+            "Token(type=<TokenType.WORD: 'word'>, value='пресс-службе', start=167, end=179)",
+            "Token(type=<TokenType.WORD: 'word'>, value='минобороны', start=180, end=190)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='россии', start=191, end=197)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=197, end=198)"
+        ]
+    },
+    "TokenBuilder":{
+        "build":[
+            "Token(type=<TokenType.WORD: 'word'>, value='средства пво россии', start=0, end=19)",
+            "Token(type=<TokenType.DATE: 'date'>, value='с 20:00', start=20, end=27)",
+            "Token(type=<TokenType.DATE: 'date'>, value='до 8:00 мск', start=28, end=39)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='822 беспилотника всу', start=51, end=71)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='над 17 российскими регионами,', start=72, end=101)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='а также', start=102, end=109)",
+            "Token(type=<TokenType.LOCATION: 'word'>, value='акваториями азовского', start=110, end=131)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='и', start=132, end=133)",
+            "Token(type=<TokenType.WORD: 'word'>, value='черного морей.', start=134, end=148)",
+            "Token(type=<TokenType.DETERMINER: 'determiner'>, value='об этом', start=149, end=156)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='в пресс-службе минобороны россии.', start=165, end=198)"
+        ]
+    },
+    "TokenMerger":{
+        "merge_related_tokens":[
+            "Token(type=<TokenType.WORD: 'word'>, value='средства пво россии', start=0, end=19)",
+            "Token(type=<TokenType.DATE: 'date'>, value='с 20:00 до 8:00 мск', start=20, end=39)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50)",
+            "Token(type=<TokenType.NUMBER: 'num'>, value='822 беспилотника всу', start=51, end=71)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='над 17 российскими регионами, а также акваториями азовского и черного морей.', start=72, end=148)",
+            "Token(type=<TokenType.DETERMINER: 'determiner'>, value='об этом', start=149, end=156)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='в пресс-службе минобороны россии.', start=165, end=198)"
+        ]
+    },
+    "RelationBuilder":{
+        "identify_relevant_tokens":[
+            "ActionCandidate(token=Token(type=<TokenType.WORD: 'word'>, value='средства пво россии', start=0, end=19), hierarchy_score=3)",
+            "ActionCandidate(token=Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50), hierarchy_score=10)",
+            "ActionCandidate(token=Token(type=<TokenType.NUMBER: 'num'>, value='822 беспилотника всу', start=51, end=71), hierarchy_score=4)",
+            "ActionCandidate(token=Token(type=<TokenType.DETERMINER: 'determiner'>, value='об этом', start=149, end=156), hierarchy_score=4)",
+            "ActionCandidate(token=Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164), hierarchy_score=10)",
+            "ActionCandidate(token=Token(type=<TokenType.PREPOSITION: 'preposition'>, value='в пресс-службе минобороны россии.', start=165, end=198), hierarchy_score=2)"
+        ],
+        "make_action":[
+            "Action(subject=Token(type=<TokenType.WORD: 'word'>, value='средства пво россии', start=0, end=19), predicate=Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50), object=Token(type=<TokenType.NUMBER: 'num'>, value='822 беспилотника всу', start=51, end=71))",
+            "Action(subject=Token(type=<TokenType.DETERMINER: 'determiner'>, value='об этом', start=149, end=156), predicate=Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164), object=Token(type=<TokenType.PREPOSITION: 'preposition'>, value='в пресс-службе минобороны россии.', start=165, end=198))"
+        ],
+        "make_relation":[
+            "Token(type=<TokenType.INITIATOR: 'initiator'>, value='средства пво россии', start=0, end=19)",
+            "Token(type=<TokenType.DATE: 'date'>, value='с 20:00 до 8:00 мск', start=20, end=39)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50)",
+            "Token(type=<TokenType.OBJECT: 'object'>, value='822 беспилотника всу', start=51, end=71)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='над 17 российскими регионами, а также акваториями азовского и черного морей.', start=72, end=148)",
+            "Token(type=<TokenType.OBJECT: 'object'>, value='об этом', start=149, end=156)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявили', start=157, end=164)",
+            "Token(type=<TokenType.INITIATOR: 'initiator'>, value='в пресс-службе минобороны россии.', start=165, end=198)"
+        ]
+    },
+    "EventBuilder":{
+        "build_event":[
+            "Event(initiator=Token(type=<TokenType.INITIATOR: 'initiator'>, value='средства пво россии', start=0, end=19), verb=Token(type=<TokenType.VERB: 'verb'>, value='уничтожили', start=40, end=50), object=Token(type=<TokenType.OBJECT: 'object'>, value='822 беспилотника всу', start=51, end=71), location=Token(type=<TokenType.LOCATION: 'location'>, value='над 17 российскими регионами, а также акваториями азовского и черного морей.', start=72, end=148), time=None, source='в пресс-службе минобороны россии.')"
+        ]
+    }
 }

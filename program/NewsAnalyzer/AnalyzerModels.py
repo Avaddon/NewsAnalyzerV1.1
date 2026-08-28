@@ -2,6 +2,7 @@ from dataclasses import dataclass, fields
 from program.NewsAnalyzer.Proccessing.Tokenizer import Token
 from typing import Optional
 
+
 @dataclass
 class Primary_Token:
     
@@ -34,13 +35,13 @@ class Event:
     verb: Optional[Token] = None
     object: Optional[Token] = None
     location: Optional[Token] = None
-    date: Optional[Token] = None
+    time: Optional[Token] = None
     source:Optional[Token] = None         
 
     def get_sorted_tokens(self) -> list[Token]:
 
-        tokens = [t for t in [self.initiator, self.object, self.verb, 
-                              self.date, self.location] if t]
+        tokens = [t for t in [self.initiator, self.object, self.action, 
+                              self.time, self.location] if t]
         return sorted(tokens, key=lambda x:x.end)
 
     def build_sentence(self) -> str:

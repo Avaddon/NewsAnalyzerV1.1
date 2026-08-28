@@ -40,9 +40,9 @@ class RelationBuilder:
                 action_tokens.append(ActionCandidate(token=token, hierarchy_score=self.hierarchy[token.type.value]))
         return action_tokens
 
-    def make_action(self, token_list:list[Token]) -> list[Action]:
+    def make_action(self, action_tokens:list[ActionCandidate]) -> list[Action]:
 
-        action_tokens = self.identify_relevant_tokens(token_list)
+        #action_tokens = self.identify_relevant_tokens(token_list)
         action = Action()
         current_token_score = -1
         action_list = []
@@ -62,10 +62,15 @@ class RelationBuilder:
                         current_token_score = token.hierarchy_score
                         action.subject = token.token
             else:
-                if token.token.type.value == 'verb' or token.hierarchy_score == current_token_score:
+                if token.token.type.value == 'verb':
                     action_list.append(action)
                     current_token_score = None
                     action = Action()
+
+                elif token.hierarchy_score == current_token_score:
+                    action_list.append(action)
+                    current_token_score = None
+                    action = Action(subject=token.token)
                 else:
                     if not action.object:
                         current_token_score = token.hierarchy_score
@@ -78,15 +83,13 @@ class RelationBuilder:
                         action = Action()
         return action_list
         
-    def make_relation(self, token_list:list):
+    def make_relation(self, action_list:list[Action], token_list:list[Token]) -> list[Token]:
 
         tokens = deepcopy(token_list)
-
-        action_list = self.make_action(tokens)
-
+        actions = deepcopy(action_list)
         relation_list = []
 
-        for action in action_list:
+        for action in actions:
 
             for token_type, pattern in self.patterns.items():
 
@@ -99,21 +102,21 @@ class RelationBuilder:
                         action.object.type = TokenType.INITIATOR
                     relation_list.append(action)
 
-        result = self.modify_token_list(tokens, action_list=action_list)
+        tokens = self.modify_token_list(token_list=tokens, removable_action_tokens=action_list,
+                                        insertable_action_tokens=relation_list)
 
-        return result
+        return tokens
 
-    def modify_token_list(self, token_list:list[Token], action_list:list[Action]):
-
+    def modify_token_list(self, token_list:list[Token], removable_action_tokens:list[Action], 
+                          insertable_action_tokens:list[Action]) -> list[Token]:
         action_tokens = []
 
-        for action in action_list:
+        for action in removable_action_tokens:
             for field in fields(action):
-
-                action_tokens.append(action.__getattribute__(field.name))
                 token_list.remove(action.__getattribute__(field.name))
-
+        for action in insertable_action_tokens:
+            for field in fields(action):
+                action_tokens.append(action.__getattribute__(field.name))
         for token in action_tokens:
             token_list.append(token)
-
         return sorted(token_list, key=lambda t:t.end)

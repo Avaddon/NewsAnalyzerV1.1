@@ -1,0 +1,21 @@
+{
+    "Tokenizer":{
+        "tokenize":"",
+        "classify_tokens":""
+    },
+    "TokenBuilder":{
+        "build":""
+    },
+    "TokenMerger":{
+        "merge_related_tokens":""
+    },
+    "RelationBuilder":{
+        "identify_relevant_tokens":"",
+        "make_action":"",
+        "make_relation":"",
+        "modify_token_list":""
+    },
+    "EventBuilder":{
+        "build_event":""
+    }
+}

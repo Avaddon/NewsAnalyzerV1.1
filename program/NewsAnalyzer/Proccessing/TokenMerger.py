@@ -15,7 +15,7 @@ class TokenMerger:
            'verb':['verb'],
            'num':['num','NUM_PHRASE'],
            'preposition':['preposition','conjunction'],
-           'location':['location','conjunction'],   
+           'location':['location','conjunction','word'],   
            'determiner':[],  'quote':[],'unquote':[],
            'date':['date'],  'conjunction':[],   'dash':[], 'region_word':[],
            'comma':[],   'initiator':[]}

@@ -1,6 +1,123 @@
 {
-    "initiator":"профильные российские ведомства",
-    "action":"не поддерживают",
-    "object":"идеи о денонсации соглашений России с НАТО, Евросоюзом, Всемирной торговой организацией (ВТО) и Международным валютным фондом (МВФ),",
-    "source":"полпред президента в Госдуме Гарри Минх."
+    "Tokenizer":{
+        "tokenize":[
+            "Token(type=<TokenType.WORD: 'word'>, value='профильные', start=0, end=10)",
+            "Token(type=<TokenType.WORD: 'word'>, value='российские', start=11, end=21)",
+            "Token(type=<TokenType.WORD: 'word'>, value='ведомства', start=22, end=31)",
+            "Token(type=<TokenType.WORD: 'word'>, value='не', start=32, end=34)",
+            "Token(type=<TokenType.WORD: 'word'>, value='поддерживают', start=35, end=47)",
+            "Token(type=<TokenType.WORD: 'word'>, value='идеи', start=48, end=52)",
+            "Token(type=<TokenType.WORD: 'word'>, value='о', start=53, end=54)",
+            "Token(type=<TokenType.WORD: 'word'>, value='денонсации', start=55, end=65)",
+            "Token(type=<TokenType.WORD: 'word'>, value='соглашений', start=66, end=76)",
+            "Token(type=<TokenType.WORD: 'word'>, value='россии', start=77, end=83)",
+            "Token(type=<TokenType.WORD: 'word'>, value='с', start=84, end=85)",
+            "Token(type=<TokenType.WORD: 'word'>, value='нато', start=86, end=90)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value=',', start=90, end=91)",
+            "Token(type=<TokenType.WORD: 'word'>, value='евросоюзом', start=92, end=102)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value=',', start=102, end=103)",
+            "Token(type=<TokenType.WORD: 'word'>, value='всемирной', start=104, end=113)",
+            "Token(type=<TokenType.WORD: 'word'>, value='торговой', start=114, end=122)",
+            "Token(type=<TokenType.WORD: 'word'>, value='организацией', start=123, end=135)",
+            "Token(type=<TokenType.WORD: 'word'>, value='вто', start=137, end=140)",
+            "Token(type=<TokenType.WORD: 'word'>, value='и', start=142, end=143)",
+            "Token(type=<TokenType.WORD: 'word'>, value='международным', start=144, end=157)",
+            "Token(type=<TokenType.WORD: 'word'>, value='валютным', start=158, end=166)",
+            "Token(type=<TokenType.WORD: 'word'>, value='фондом', start=167, end=173)",
+            "Token(type=<TokenType.WORD: 'word'>, value='мвф', start=175, end=178)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value=',', start=179, end=180)",
+            "Token(type=<TokenType.WORD: 'word'>, value='заявил', start=181, end=187)",
+            "Token(type=<TokenType.WORD: 'word'>, value='полпред', start=188, end=195)",
+            "Token(type=<TokenType.WORD: 'word'>, value='президента', start=196, end=206)",
+            "Token(type=<TokenType.WORD: 'word'>, value='в', start=207, end=208)",
+            "Token(type=<TokenType.WORD: 'word'>, value='госдуме', start=209, end=216)",
+            "Token(type=<TokenType.WORD: 'word'>, value='гарри', start=217, end=222)",
+            "Token(type=<TokenType.WORD: 'word'>, value='минх', start=223, end=227)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=227, end=228)"
+        ],
+        "classify_tokens":[
+            "Token(type=<TokenType.WORD: 'word'>, value='профильные', start=0, end=10)",
+            "Token(type=<TokenType.WORD: 'word'>, value='российские', start=11, end=21)",
+            "Token(type=<TokenType.WORD: 'word'>, value='ведомства', start=22, end=31)",
+            "Token(type=<TokenType.NEGATION: 'negation'>, value='не', start=32, end=34)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='поддерживают', start=35, end=47)",
+            "Token(type=<TokenType.WORD: 'word'>, value='идеи', start=48, end=52)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='о', start=53, end=54)",
+            "Token(type=<TokenType.WORD: 'word'>, value='денонсации', start=55, end=65)",
+            "Token(type=<TokenType.WORD: 'word'>, value='соглашений', start=66, end=76)",
+            "Token(type=<TokenType.LOCATION: 'location'>, value='россии', start=77, end=83)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='с', start=84, end=85)",
+            "Token(type=<TokenType.WORD: 'word'>, value='нато', start=86, end=90)",
+            "Token(type=<TokenType.COMMA: 'comma'>, value=',', start=90, end=91)",
+            "Token(type=<TokenType.WORD: 'word'>, value='евросоюзом', start=92, end=102)",
+            "Token(type=<TokenType.COMMA: 'comma'>, value=',', start=102, end=103)",
+            "Token(type=<TokenType.WORD: 'word'>, value='всемирной', start=104, end=113)",
+            "Token(type=<TokenType.WORD: 'word'>, value='торговой', start=114, end=122)",
+            "Token(type=<TokenType.WORD: 'word'>, value='организацией', start=123, end=135)",
+            "Token(type=<TokenType.WORD: 'word'>, value='вто', start=137, end=140)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='и', start=142, end=143)",
+            "Token(type=<TokenType.WORD: 'word'>, value='международным', start=144, end=157)",
+            "Token(type=<TokenType.WORD: 'word'>, value='валютным', start=158, end=166)",
+            "Token(type=<TokenType.WORD: 'word'>, value='фондом', start=167, end=173)",
+            "Token(type=<TokenType.WORD: 'word'>, value='мвф', start=175, end=178)",
+            "Token(type=<TokenType.COMMA: 'comma'>, value=',', start=179, end=180)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявил', start=181, end=187)",
+            "Token(type=<TokenType.WORD: 'word'>, value='полпред', start=188, end=195)",
+            "Token(type=<TokenType.INITIATOR: 'initiator'>, value='президента', start=196, end=206)",
+            "Token(type=<TokenType.PLACE_PREPOSITION: 'place_preposition'>, value='в', start=207, end=208)",
+            "Token(type=<TokenType.WORD: 'word'>, value='госдуме', start=209, end=216)",
+            "Token(type=<TokenType.WORD: 'word'>, value='гарри', start=217, end=222)",
+            "Token(type=<TokenType.WORD: 'word'>, value='минх', start=223, end=227)",
+            "Token(type=<TokenType.SYMBOL: 'symbol'>, value='.', start=227, end=228)"
+        ]
+    },
+    "TokenBuilder":{
+        "build":[
+            "Token(type=<TokenType.WORD: 'word'>, value='профильные российские ведомства', start=0, end=31)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='не поддерживают', start=32, end=47)",
+            "Token(type=<TokenType.WORD: 'word'>, value='идеи', start=48, end=52)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='о денонсации соглашений россии', start=53, end=83)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='с нато,', start=84, end=91)",
+            "Token(type=<TokenType.WORD: 'word'>, value='евросоюзом,', start=92, end=103)",
+            "Token(type=<TokenType.WORD: 'word'>, value='всемирной торговой организацией вто', start=104, end=140)",
+            "Token(type=<TokenType.CONJUNCTION: 'conjunction'>, value='и', start=142, end=143)",
+            "Token(type=<TokenType.WORD: 'word'>, value='международным валютным фондом мвф,', start=144, end=180)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявил', start=181, end=187)",
+            "Token(type=<TokenType.WORD: 'word'>, value='полпред президента', start=188, end=206)",
+            "Token(type=<TokenType.PREPOSITION: 'preposition'>, value='в госдуме гарри минх.', start=207, end=228)"
+        ]
+    },
+    "TokenMerger":{
+        "merge_related_tokens":[
+            "Token(type=<TokenType.WORD: 'word'>, value='профильные российские ведомства', start=0, end=31)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='не поддерживают', start=32, end=47)",
+            "Token(type=<TokenType.WORD: 'word'>, value='идеи о денонсации соглашений россии с нато, евросоюзом, всемирной торговой организацией вто и международным валютным фондом мвф,', start=48, end=180)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявил', start=181, end=187)",
+            "Token(type=<TokenType.WORD: 'word'>, value='полпред президента в госдуме гарри минх.', start=188, end=228)"
+        ]
+    },
+    "RelationBuilder":{
+        "identify_relevant_tokens":[
+            "ActionCandidate(token=Token(type=<TokenType.WORD: 'word'>, value='профильные российские ведомства', start=0, end=31), hierarchy_score=3)",
+            "ActionCandidate(token=Token(type=<TokenType.VERB: 'verb'>, value='не поддерживают', start=32, end=47), hierarchy_score=10)",
+            "ActionCandidate(token=Token(type=<TokenType.WORD: 'word'>, value='идеи о денонсации соглашений россии с нато, евросоюзом, всемирной торговой организацией вто и международным валютным фондом мвф,', start=48, end=180), hierarchy_score=3)",
+            "ActionCandidate(token=Token(type=<TokenType.VERB: 'verb'>, value='заявил', start=181, end=187), hierarchy_score=10)",
+            "ActionCandidate(token=Token(type=<TokenType.WORD: 'word'>, value='полпред президента в госдуме гарри минх.', start=188, end=228), hierarchy_score=3)"
+        ],
+        "make_action":[
+            "Action(subject=Token(type=<TokenType.WORD: 'word'>, value='профильные российские ведомства', start=0, end=31), predicate=Token(type=<TokenType.VERB: 'verb'>, value='не поддерживают', start=32, end=47), object=Token(type=<TokenType.WORD: 'word'>, value='идеи о денонсации соглашений россии с нато, евросоюзом, всемирной торговой организацией вто и международным валютным фондом мвф,', start=48, end=180))"
+        ],
+        "make_relation":[
+            "Token(type=<TokenType.INITIATOR: 'initiator'>, value='профильные российские ведомства', start=0, end=31)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='не поддерживают', start=32, end=47)",
+            "Token(type=<TokenType.OBJECT: 'object'>, value='идеи о денонсации соглашений россии с нато, евросоюзом, всемирной торговой организацией вто и международным валютным фондом мвф,', start=48, end=180)",
+            "Token(type=<TokenType.VERB: 'verb'>, value='заявил', start=181, end=187)",
+            "Token(type=<TokenType.WORD: 'word'>, value='полпред президента в госдуме гарри минх.', start=188, end=228)"
+        ]
+    },
+    "EventBuilder":{
+        "build_event":[
+
+        ]
+    }
 }

@@ -15,6 +15,7 @@ class TokenType(Enum):
     INITIATOR = 'initiator'
     DETERMINER = 'determiner'
     PREPOSITION = 'preposition'
+    PLACE_PREPOSITION = 'place_preposition'
     CONJUNCTION = 'conjunction'
     NEGATION = 'negation'
     SYMBOL = 'symbol'

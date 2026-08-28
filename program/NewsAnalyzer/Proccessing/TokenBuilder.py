@@ -29,21 +29,26 @@ class TokenBuilder:
                 TokenType.PERCENT:'PREPOSITIONAL_PHRASE',
                 TokenType.NEGATION:'VERB',
                 TokenType.PREPOSITION:'PREPOSITIONAL_PHRASE',
+                TokenType.PLACE_PREPOSITION:'PLACE_PREPOSITION',
                 TokenType.CONJUNCTION:'CONJUNCTION',
                 TokenType.WORD:'WORD',
                 TokenType.VERB:'VERB',
                 TokenType.NUMBER: 'NUM_BUILDER',
-                TokenType.LOCATION:'LOCATION_BUILDER',
+                TokenType.LOCATION:'WORD',
                 TokenType.LOCATION_WORD: 'LOCATION_PHRASE_BUILDER',
                 TokenType.DATE:'DATE_BUILDER',
                 TokenType.INITIATOR:'INITIATOR_BUILDER'
                 },
             'PREPOSITIONAL_PHRASE':{
                 'base':          {'include':['word','dash','location_word','comma','symbol'],  'type':TokenType.PREPOSITION},
-                'transitional':  ['num','determiner','location','initiator','date'],
-                'trigger':       ['word'],
-                'change_state':  'AFTER_WORD_PREPOSITION',
+                'transitional':  ['num','determiner','initiator','date'],
+                'trigger':       {'word':'AFTER_WORD_PREPOSITION'},
             },
+            'PLACE_PREPOSITION':{
+                'base':          {'include':['word','dash','location_word','comma','symbol'],  'type':TokenType.PREPOSITION},
+                'transitional':  ['num','determiner','initiator','date'],
+                'trigger':       {'word':'AFTER_WORD_PREPOSITION', 'location':'LOCATION_BUILDER'},
+                        },
             'AFTER_WORD_PREPOSITION':{
                 'base':          {'include':['word','dash','location','location_word','comma','symbol'], 'type':TokenType.PREPOSITION},
                 'transitional':  ['num','determiner','location','initiator','date'],
@@ -51,8 +56,7 @@ class TokenBuilder:
             'NUM_BUILDER':{
                 'base':          {'include':['num','word','symbol','comma'],  'type':TokenType.NUMBER},
                 'transitional':  ['date'],
-                'trigger':       ['location'],
-                'change_state':  'AFTER_REGION_NUM'
+                'trigger':       {'location':'AFTER_REGION_NUM'}
             },
             'AFTER_REGION_NUM':  {'base': {'include':['num','word','symbol','comma','location'],  'type':TokenType.LOCATION}},
             'VERB':              {'base': {'include':['verb','negation','comma','symbol'],'type':TokenType.VERB}},
@@ -64,8 +68,7 @@ class TokenBuilder:
             'DATE_BUILDER':      {'base': {'include':['date','num','conjunction','word'], 'type':TokenType.DATE}},
             'CITATION':{
                 'base':         {'include':[*Patterns.keys()],'type':TokenType.QUOTE},
-                'trigger':      ['unquote'],
-                'change_state':  'AFTER_UNQUOTE_CITATION'
+                'trigger':      {'unquote':'AFTER_UNQUOTE_CITATION'},
             },
             'AFTER_UNQUOTE_CITATION': {'include':['symbol','comma','unquote','dash'],'type':TokenType.QUOTE}
         }
@@ -117,7 +120,7 @@ class TokenBuilder:
             building_params = deepcopy(self.transitions[self.state])
 
             if token.type.value in building_params.get('trigger', []):
-                self.state = building_params['change_state']
+                self.state = building_params['trigger'][token.type.value]
                 building_params = deepcopy(self.transitions[self.state])
 
             if (
